@@ -22,7 +22,7 @@ const controller = {
 		db.Productos.findAll()
 			.then((productosResultado) => {
 				if (productosResultado) {
-					res.render('index', {productosAll: productosResultado});
+					res.render('index',  {toThousand, formatPrice, productosAll: productosResultado});
 				} else {
 					res.send("error");
 				}

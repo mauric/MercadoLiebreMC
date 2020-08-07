@@ -34,7 +34,7 @@ const controller = {
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		// Do the magic
-		db.Productos.findOne(req.params.id)
+		db.Productos.findByPk(req.params.productId)
 		.then((productosResultado) => {
 			if (productosResultado) {
 				res.render('detail', { producto: productosResultado });
@@ -69,7 +69,7 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic
-		db.Productos.findOne(req.params.id)
+		db.Productos.findByPk(req.params.productId)
 		.then((productoEditar) => {
 			if (productoEditar) {
 				res.render('product-edit-form',{productToEdit: productoEditar});
@@ -85,7 +85,8 @@ const controller = {
         db.Productos.update(
             {
                 name: req.body.name,
-                description: req.body.description,
+				description: req.body.description,
+				image: '/images/products/' + req.files[0].filename,
                 price: req.body.price,
                 discount: req.body.discount,
                 category: req.body.category
