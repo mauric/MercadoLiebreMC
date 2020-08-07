@@ -20,3 +20,15 @@
 - Models ready, I'll create the database with dump.sql no fill
 - require model into main controller
 - build first view require
+
+
+# Problemas
+- multer y la variable de destino es necesario setearla bien, al igual que en el update de la db
+    ver bien que es lo que llega, yo hice una concatenacion talvez hay formas mas limpias
+- en el detail y productos habia puesto findOne en vez de findByPk y tomaba siempre el detalle del primer producto
+- molesto un poco al llamar req.params.id cuando estaba declarado req.params.productId
+- no habia instalado el paquete path ni multer
+- tampoco method override
+- las rutas por Put no estaban funcioanndo bien hasta reinstalar esos paquetes
+- y arreglar el req.params.productId
+- para el storage usar las formulas del playground en vez de la documentacion oficial
