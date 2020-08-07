@@ -1,17 +1,33 @@
-//const fs = require('fs');
-//const path = require('path');
+/**
+ * Main controller
+ * 
+ * @Controla las rutas del index
+ * 
+ */
 
-//const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-cont db = require('../database/models');
+ /**
+  * Imports
+  */
+const db = require('../database/models');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const formatPrice = (price, discount) => toThousand(Math.round(price * (1 - (discount / 100))));
 
+/**
+ * Controller
+ */
 const controller = {
 	root: (req, res) => {
+		
 		// Do the magic
-		//Search in DB allproducts
-		res.render('index');
+		db.Productos.findAll()
+			.then((productosResultado) => {
+				if (productosResultado) {
+					res.render('index', {productosAll: productosResultado});
+				} else {
+					res.send("error");
+				}
+			}
+			);
 	},
 	search: (req, res) => {
 		// Do the magic

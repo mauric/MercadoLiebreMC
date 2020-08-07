@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    alias = "Productos"
+    alias = "Productos";
     cols = {
         id: {
             type: DataTypes.INTEGER,
@@ -24,18 +24,12 @@ module.exports = (sequelize, DataTypes) => {
         category: {
             type: DataTypes.STRING
         },
-        createAt: {
-            type: DataTypes.DATE
-        },
-        createAt: {
-            type: DataTypes.DATE
-        }
     };
     config = {
-        tableName: "productos",
-        timeStamp: true
+        tableName: 'productos',
+        timestamps: false,
     };
-    const Product = sequelize.define(alias, cols, config)
+    const Product = sequelize.define(alias, cols, config);
 
     return Product;
 }
