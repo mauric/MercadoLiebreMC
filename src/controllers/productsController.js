@@ -54,10 +54,11 @@ const controller = {
 	// Create -  Method to store
 	store: (req, res, next) => {
 		// Do the magic
+		//console.log(req.files[0].filename);
 		db.Productos.create({
             name: req.body.name,
             description: req.body.description,
-            //image: req.files[0].filename,
+            image: '/images/products/' + req.files[0].filename,
             price: req.body.price,
             discount: req.body.discount,
             category: req.body.category

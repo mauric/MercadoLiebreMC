@@ -21,6 +21,10 @@
 						<input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
+						<label for="image" class="form-label">Subi la foto de tu producto:</label>
+						<input type="file" id="image" name="image" class="form-input">
+					</div>
+					<div class="col-12 col-md-6">
 						<label for="price" class="form-label">Precio del producto:</label>
 						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
 					</div>
@@ -33,9 +37,10 @@
 						<select name="category" id="category" class="form-input">
 							<option value="">Elegí</option>
 							<option value="in-sale">En oferta</option>
-							<option value="visited">Últimos agregados</option>
+							<option value="visited" selected >Últimos agregados</option>
 						</select>
 					</div>
+
 					<div class="col-12">
 						<label for="description" class="form-label">Descipción:</label>
 						<textarea name="description" id="description" class="form-input"></textarea>
