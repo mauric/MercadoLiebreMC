@@ -23,7 +23,7 @@ const controller = {
 		db.Productos.findAll()
 			.then((productosResultado) => {
 				if (productosResultado) {
-					res.render('products', { productosAll: productosResultado });
+					res.render('products', {toThousand, formatPrice, productosAll: productosResultado });
 				} else {
 					res.send("error");
 				}
@@ -37,7 +37,7 @@ const controller = {
 		db.Productos.findByPk(req.params.productId)
 		.then((productosResultado) => {
 			if (productosResultado) {
-				res.render('detail', { producto: productosResultado });
+				res.render('detail', {toThousand, formatPrice, producto: productosResultado });
 			} else {
 				res.send("error");
 			}

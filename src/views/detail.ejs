@@ -27,15 +27,16 @@
 						<h2 class="product-detail-title"><%= producto.name %></h2>
 						
 							<p class="product-detail-price small">
-								<span><%= producto.price%></span>
+
+								<span>$<%=  toThousand(producto.price)%></span>
 								/
 								<b><%= producto.discount %>% OFF</b>
 							</p>
 							<p class="product-detail-price">
-								$FINAL PRICE
+								$FINAL PRICE 
 							</p>
 							<p class="product-detail-price">
-								<%= producto.price%>
+								$<%= formatPrice(producto.price, producto.discount)%>
 							</p>
 
 						<ul class="actions-list">
